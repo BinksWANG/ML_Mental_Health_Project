@@ -1,112 +1,106 @@
-🧠 Mental Health Insights: End-to-End ML Project
-📌 Problem Statement
-Mental health is a growing concern worldwide, with various factors influencing an individual's well-being. This project aims to build a machine learning pipeline that predicts whether an individual is likely to report a mental health condition based on their demographics, stress level, lifestyle choices (e.g., sleep, work, physical activity), and occupation.
+# 🧠 Mental Health Insights: End-to-End ML Project
 
-The goal is to:
+## 📌 Problem Statement
 
-Identify key lifestyle and demographic indicators of mental health conditions
+Mental health is a growing concern worldwide, influenced by many personal and environmental factors. This project aims to build a machine learning pipeline that predicts whether an individual is likely to report a mental health condition based on their demographics, stress levels, lifestyle choices (e.g., sleep, work, physical activity), and occupation.
 
-Develop a predictive model to assist in early detection
+### Objectives:
+- Identify key indicators of mental health conditions
+- Build a predictive ML model using real-world data
+- Deploy the model in a cloud environment
+- Implement monitoring to track performance and detect drift
+- Follow best practices for ML development and MLOps
 
-Deploy the model in a cloud environment
+---
 
-Monitor performance to ensure reliability and fairness over time
+## 🗂️ Dataset Description
 
-🗂️ Dataset Description
-Title: Comprehensive Mental Health Insights
-Size: 1000 records
-Source: Public domain dataset (Kaggle or similar)
+**Title:** Comprehensive Mental Health Insights  
+**Records:** 1000 individuals  
+**Source:** Public domain dataset
 
-Features:
-Demographics: Age, gender, country, occupation
+### Features:
+- **Demographics:** Age, Gender, Country, Occupation (IT, Healthcare, Engineering, etc.)
+- **Mental Health Status:** Reported Condition (Yes/No), Severity (Low/Medium/High)
+- **Consultation History:** Consulted a mental health professional (Yes/No)
+- **Stress Level:** Low / Medium / High
+- **Lifestyle Metrics:**
+  - Sleep Duration (hours per day)
+  - Work Hours per Week
+  - Physical Activity (hours per week)
 
-Mental Health Status: Reported condition (Yes/No), Severity (Low/Medium/High)
+---
 
-Consultation History: Whether the individual sought professional help
+## 🧪 Experiment Tracking & Model Registry
 
-Stress Level: Low / Medium / High
+- **Tool:** MLflow  
+- **Use:** Track experiments, store metrics (accuracy, F1-score), register models
 
-Lifestyle Metrics:
+---
 
-Sleep duration (hours per day)
+## ⚙️ ML Pipeline
 
-Work hours per week
+1. **Data Ingestion & Cleaning**
+2. **Exploratory Data Analysis (EDA)**
+3. **Preprocessing & Feature Engineering**
+4. **Model Training & Evaluation**
+5. **Experiment Tracking (MLflow)**
+6. **Model Registration**
 
-Physical activity (hours per week)
+---
 
-🧪 Experiment Tracking & Model Registry
-Tool: MLflow
+## 🔄 Workflow Orchestration
 
-Purpose: Track hyperparameters, metrics (accuracy, F1-score), and model versions
+- **Tool:** Prefect  
+- **Use:** Automate training and evaluation pipeline  
+- **Deployment:** Cloud-hosted with Prefect Cloud
 
-⚙️ ML Pipeline
-Data Ingestion: Read and clean dataset
+---
 
-Exploratory Data Analysis: Visualize correlations and distributions
+## ☁️ Cloud & Infrastructure
 
-Preprocessing: Encode categorical variables, scale numerical features
+- **Cloud Provider:** AWS  
+- **Services:** S3, EC2, Lambda, API Gateway  
+- **IaC Tool:** Terraform (for provisioning infrastructure)
 
-Modeling: Train/test split, multiple ML models evaluated (Random Forest, Logistic Regression, XGBoost)
+---
 
-Experiment Tracking: MLflow used for tracking and comparison
+## 🚀 Model Deployment
 
-Model Registry: Best model stored in MLflow registry
+- **Type:** Batch and Web API Deployment  
+- **Frameworks:** Docker, FastAPI  
+- **Deployment Targets:**
+  - **Batch**: Scheduled inference via EC2
+  - **Web**: API Gateway + AWS Lambda (FastAPI container)
 
-🔄 Workflow Orchestration
-Tool: Prefect
+---
 
-Purpose: Automate the training and evaluation steps in the pipeline
+## 📊 Model Monitoring
 
-Deployed as: Cloud workflow using Prefect Cloud
+- **Tool:** Evidently AI  
+- **Monitoring Features:**
+  - Data drift and prediction drift
+  - Model performance metrics
+  - Alert triggers (e.g., accuracy drop, input distribution shift)
+  - Optional: Auto-retraining or alert notifications
 
-☁️ Cloud & Infrastructure
-Platform: AWS (S3 for data, EC2 for compute, Lambda for deployment)
+---
 
-IaC Tool: Terraform (used to provision S3 buckets, EC2 instances, and IAM roles)
+## 🔁 Reproducibility
 
-🚀 Model Deployment
-Deployment Type: Batch and Web Service
+- **Makefile** with targets for `train`, `deploy`, `monitor`
+- Environment managed with `pipenv` and `requirements.txt`
+- All steps documented and reproducible
+- Dependency versions specified
 
-Tool: Docker + FastAPI
+---
 
-Hosting: AWS Lambda (via API Gateway for web requests) and batch job on EC2
+## 🧰 Best Practices Implemented
 
-📊 Model Monitoring
-Tool: Evidently
-
-Metrics Monitored:
-
-Data drift (categorical and numerical)
-
-Prediction distribution
-
-Accuracy/F1-score changes over time
-
-Trigger: Alert and retrain if performance degrades beyond threshold
-
-🔁 Reproducibility
-All steps included in a reproducible Makefile
-
-Environment managed with pipenv and requirements.txt
-
-All experiments tracked in MLflow
-
-Instructions for local and cloud execution provided
-
-🧰 Best Practices
-Feature	Implemented
-Unit tests	✅
-Integration test	✅
-Linter/Formatter	✅ (Black + flake8)
-Makefile	✅
-Pre-commit hooks	✅
-CI/CD Pipeline	✅ (GitHub Actions)
-
-🧠 Use Case
-This project provides the foundation for building a real-world health risk assessment tool. HR departments, healthcare providers, and researchers can leverage this to:
-
-Understand patterns in employee stress and mental health
-
-Recommend early interventions
-
-Drive policy change for better work-life balance
+| Feature               | Status |
+|-----------------------|--------|
+| Unit Tests            | ✅     |
+| Integration Test      | ✅     |
+| Linter / Formatter    | ✅ (Black, flake8) |
+| Makefile              | ✅     |
+| Pre-commit Hooks      | ✅
