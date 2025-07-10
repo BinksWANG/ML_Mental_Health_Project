@@ -1,0 +1,22 @@
+artifact_path: /home/binks/ML_Mental_Health_Project/experiment_tracking/mlruns/1/models/m-f4c28d1ff1d54a1a9819e8beaba73db4/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.9.23
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.6.1
+mlflow_version: 3.1.1
+model_id: m-f4c28d1ff1d54a1a9819e8beaba73db4
+model_size_bytes: 1434
+model_uuid: m-f4c28d1ff1d54a1a9819e8beaba73db4
+prompts: null
+run_id: b6da8fee6bb44c8090650351b72e4375
+utc_time_created: '2025-07-09 04:26:58.580505'
