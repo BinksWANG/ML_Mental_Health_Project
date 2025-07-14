@@ -1,0 +1,22 @@
+artifact_path: /home/binks/ML_Mental_Health_Project/experiment_tracking/mlruns/2/models/m-9b4b06ab1d5c4ec7b7cbeafccab7a6e6/artifacts
+flavors:
+  python_function:
+    data: model.xgb
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.xgboost
+    python_version: 3.9.23
+  xgboost:
+    code: null
+    data: model.xgb
+    model_class: xgboost.core.Booster
+    model_format: xgb
+    xgb_version: 2.1.4
+mlflow_version: 3.1.1
+model_id: m-9b4b06ab1d5c4ec7b7cbeafccab7a6e6
+model_size_bytes: 7980
+model_uuid: m-9b4b06ab1d5c4ec7b7cbeafccab7a6e6
+prompts: null
+run_id: 5e474d5ae2d3438ba1b39094a0d02848
+utc_time_created: '2025-07-13 20:46:31.756066'
