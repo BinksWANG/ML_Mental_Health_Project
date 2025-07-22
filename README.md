@@ -7,7 +7,7 @@ Mental health is a growing concern worldwide, influenced by many personal and en
 ### Objectives:
 - Identify key indicators of mental health conditions
 - Build a predictive ML model using real-world data
-- Deploy the model in a cloud environment
+- Deploy the model in a web environment with flask and docker
 - Implement monitoring to track performance and detect drift
 - Follow best practices for ML development and MLOps
 
@@ -17,7 +17,7 @@ Mental health is a growing concern worldwide, influenced by many personal and en
 
 **Title:** Comprehensive Mental Health Insights  
 **Records:** 1000 individuals  
-**Source:** Public domain dataset
+**Source:** Public domain dataset ([Kaggle Link](https://www.kaggle.com/datasets/bhadramohit/mental-health-dataset?select=mental_health_dataset.csv))  
 
 ### Features:
 - **Demographics:** Age, Gender, Country, Occupation (IT, Healthcare, Engineering, etc.)
@@ -97,10 +97,10 @@ Mental health is a growing concern worldwide, influenced by many personal and en
 
 ## 🧰 Best Practices Implemented
 
-| Feature               | Status |
-|-----------------------|--------|
-| Unit Tests            | ✅     |
-| Integration Test      | ✅     |
+| Feature               | Status            |
+|-----------------------|--------------------|
+| Unit Tests            | ✅                 |
+| Integration Test      | ✅                 |
 | Linter / Formatter    | ✅ (Black, flake8) |
-| Makefile              | ✅     |
-| Pre-commit Hooks      | ✅
+| Makefile              | ✅                 |
+| Pre-commit Hooks      | ✅                 |
