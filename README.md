@@ -1,4 +1,4 @@
-# 🧠 Mental Health Insights: End-to-End ML Project
+# 🧠 ML Mental Health Project
 
 ## 📌 Problem Statement
 
@@ -7,7 +7,7 @@ Mental health is a growing concern worldwide, influenced by many personal and en
 ### Objectives:
 - Identify key indicators of mental health conditions
 - Build a predictive ML model using real-world data
-- Deploy the model in a web environment with flask and docker
+- Deploy the model in a web environment with Flask and Docker
 - Implement monitoring to track performance and detect drift
 - Follow best practices for ML development and MLOps
 
@@ -28,70 +28,83 @@ Mental health is a growing concern worldwide, influenced by many personal and en
   - Sleep Duration (hours per day)
   - Work Hours per Week
   - Physical Activity (hours per week)
+  
+---
+
+## 🧰 Technologies Used
+
+| Category                 | Tools/Frameworks                |
+|--------------------------|-----------------------------------|
+| Infrastructure           | Google Cloud Platform           |
+| Containerization         | Docker                          |
+| Web Framework            | Flask                           |
+| Workflow Orchestration   | Mage                            |
+| Experiment Tracking      | MLflow                          |
+| Monitoring               | Evidently AI                    |
+| IaC                      | Terraform                       |
+| CI/CD                    | Makefile, pre-commit, pipenv    |
+| ML Libraries             | Scikit-learn, Pandas, NumPy     |
+| Testing & Quality        | Pytest, flake8, Black           |
 
 ---
 
-## 🧪 Experiment Tracking & Model Registry
+## ⚙️ Project Workflow
+### 🔹 Phase 0: Environmental Setting
+This project follows a modular, automated workflow:
 
-- **Tool:** MLflow  
-- **Use:** Track experiments, store metrics (accuracy, F1-score), register models
+### 🔹 Phase 1: Data Exploration and Preprocessing
+- Load and inspect the Kaggle dataset.
+- Perform Exploratory Data Analysis (EDA).
+- Handle missing values, encode categorical features, scale numeric data.
+- Engineer features to enhance model performance.
 
----
+### 🔹 Phase 2: Model Development
+- Train ML models (Logistic Regression, Random Forest, XGBoost).
+- Evaluate models using Accuracy, F1-score, and ROC-AUC.
+- Perform hyperparameter tuning (GridSearchCV or Hyperopt).
 
-## ⚙️ ML Pipeline
+### 🔹 Phase 3: Experiment Tracking & Model Registry
+- Use MLflow to:
+  - Log experiments
+  - Track metrics and parameters
+  - Register and version models for production.
 
-1. **Data Ingestion & Cleaning**
-2. **Exploratory Data Analysis (EDA)**
-3. **Preprocessing & Feature Engineering**
-4. **Model Training & Evaluation**
-5. **Experiment Tracking (MLflow)**
-6. **Model Registration**
+### 🔹 Phase 4: Deployment
+- **Batch Deployment**: Scheduled inference jobs on AWS EC2.
+- **Web API Deployment**: REST API using Flask and FastAPI, deployed via AWS Lambda + API Gateway in Docker containers.
 
----
-
-## 🔄 Workflow Orchestration
-
-- **Tool:** Prefect  
-- **Use:** Automate training and evaluation pipeline  
-- **Deployment:** Cloud-hosted with Prefect Cloud
+### 🔹 Phase 5: Monitoring
+- Monitor data drift and model performance using Evidently AI.
+- Set alerts for performance degradation and trigger retraining if necessary.
 
 ---
 
 ## ☁️ Cloud & Infrastructure
 
-- **Cloud Provider:** AWS  
-- **Services:** S3, EC2, Lambda, API Gateway  
-- **IaC Tool:** Terraform (for provisioning infrastructure)
+Infrastructure is provisioned using **Terraform** on AWS:  
+
+| Service           | Description                           |
+|-------------------|---------------------------------------|
+| **S3**            | Stores datasets and model artifacts  |
+| **EC2**           | Hosts batch inference jobs           |
+| **Lambda & API Gateway** | Serves predictions via REST API |
+| **Docker**        | Ensures containerized deployments    |
 
 ---
 
-## 🚀 Model Deployment
+## 🚀 Project Setup
 
-- **Type:** Batch and Web API Deployment  
-- **Frameworks:** Docker, FastAPI  
-- **Deployment Targets:**
-  - **Batch**: Scheduled inference via EC2
-  - **Web**: API Gateway + AWS Lambda (FastAPI container)
+### Prerequisites
+- AWS account with IAM user credentials
+- Docker installed locally
+- Python 3.9+
+- Pipenv installed
 
----
-
-## 📊 Model Monitoring
-
-- **Tool:** Evidently AI  
-- **Monitoring Features:**
-  - Data drift and prediction drift
-  - Model performance metrics
-  - Alert triggers (e.g., accuracy drop, input distribution shift)
-  - Optional: Auto-retraining or alert notifications
-
----
-
-## 🔁 Reproducibility
-
-- **Makefile** with targets for `train`, `deploy`, `monitor`
-- Environment managed with `pipenv` and `requirements.txt`
-- All steps documented and reproducible
-- Dependency versions specified
+### Installation Steps
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/ml-mental-health.git
+   cd ml-mental-health
 
 ---
 
