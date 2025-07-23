@@ -1,0 +1,3 @@
+import lambda_function
+
+lambda_function.TEST_RUN
