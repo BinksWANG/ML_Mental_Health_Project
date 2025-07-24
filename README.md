@@ -200,8 +200,33 @@ docker-compose up
 
 - **scikit-learn and pipenv**
 
+```bash
+pip freeze | grep scikit-learn
+python -c "import sklearn; print(sklearn.__version__)"
+
+//create env
+pipenv install scikit-learn==1.0.2 flask --python3.9
+```
+or
+```bash
+//create env
+pipenv --python3.9
+pipenv install scikit-learn==1.0.2 flask
+```
 
 - **Web API Deployment**: Flask app deployed using Docker containers
+
+```bash
+//enter
+pipenv shell
+
+pipenv install gunicorn
+gunicorn --bind=0.0.0.0:9696 predict:app
+
+//DOCKER 
+docker build -t mental-health-pridiction-service:v1 .
+docker run -it --rm -p 9696:9696 mental-health-pridiction-service:v1
+```
 
 📸 Screenshots:
 
