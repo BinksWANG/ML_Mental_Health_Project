@@ -67,9 +67,7 @@ Mental health is a growing global concern, influenced by various personal and en
 
 📸 Screenshots:
 
-<img width="461" src="https://github.com/user-attachments/assets/98bcb40b-c2cd-40f3-8eb2-4dbc31c5456d" />
 <img width="1020" src="https://github.com/user-attachments/assets/782856fb-2a89-4a1b-a9d1-15633a086aad" />
-
 
 #### Install Anaconda
 ```bash
@@ -158,6 +156,10 @@ mlflow ui --backend-store-uri sqlite:///mlflow.db
 - Log experiments and metrics in MLflow
 - Register and version models for production
 
+```bash
+jupyter nbconvert --to=script mental-prediction-mlflow-new-ochestration.ipynb
+```
+
 📸 Screenshots:
 
 <img width="1718" src="https://github.com/user-attachments/assets/af87eeab-b976-4bca-9ddd-8da2e9b9ca43" />
@@ -168,18 +170,37 @@ mlflow ui --backend-store-uri sqlite:///mlflow.db
 ### Phase 4: Workflow Orchestration
 
 - Use Mage to automate training and evaluation pipelines
+
+```bash
+// install mage
+git clone https://github.com/mage-ai/mlops.git
+mv mlops/ mlops-mage
+
+//start.sh
+export PROJECT_NAME=mlops 
+export MAGE_CODE_PATH=home/src 
+export SMTP_EMAIL=$SMTP_EMAIL 
+export SMTP_PASSWORD=$SMTP_PASSWORD 
+docker-compose up
+
+//run start.sh file
+./scripts/start.sh
+```
+
 - Schedule jobs and monitor runs in the Mage UI
+- http://localhost:6789
 
 📸 Screenshots:
 
 <img width="1751" height="845" alt="18  mage_ingest" src="https://github.com/user-attachments/assets/ef89f8bb-d560-4148-9763-3309e81ca28d" />
 
-
 ---
 
 ### Phase 5: Deployment
 
-- **Batch Deployment**: Scheduled inference jobs on GCP VM
+- **scikit-learn and pipenv**
+
+
 - **Web API Deployment**: Flask app deployed using Docker containers
 
 📸 Screenshots:
@@ -188,7 +209,6 @@ mlflow ui --backend-store-uri sqlite:///mlflow.db
 <img width="879" height="323" alt="20  flask application" src="https://github.com/user-attachments/assets/c85ba619-7211-4d40-84a4-bc69db201ae8" />
 <img width="1441" height="321" alt="21  gunicorn" src="https://github.com/user-attachments/assets/9476503f-82ae-4cd0-810e-25b9777b54c5" />
 <img width="1295" height="863" alt="23  test and result" src="https://github.com/user-attachments/assets/c5dea1df-ebcb-4bf4-bc42-5b39bbac25df" />
-
 
 ---
 
@@ -204,7 +224,6 @@ mlflow ui --backend-store-uri sqlite:///mlflow.db
 | Experiment Tracking        | ✅ (MLflow)        |
 | Workflow Orchestration     | ✅ (Mage)          |
 | Containerization           | ✅ (Docker)        |
-| IaC for Cloud Resources    | ✅ (Terraform)     |
 
 ---
 
