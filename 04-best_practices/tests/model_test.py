@@ -1,13 +1,25 @@
-import lambda_function
+import model
 import json
 
+def test_base64_decode():
+    base64_input = "ewogICAgICAgICJyaWRlIjogewogICAgICAgICAgICAiUFVMb2NhdGlvbklEIjogMTMwLAogICAgICAgICAgICAiRE9Mb2NhdGlvbklEIjogMjA1LAogICAgICAgICAgICAidHJpcF9kaXN0YW5jZSI6IDMuNjYKICAgICAgICB9LCAKICAgICAgICAicmlkZV9pZCI6IDI1NgogICAgfQ=="
+    model.base64_decode(base64_input) 
+    actual_features = model.base64_decode(data)
+    expected_features = {
+        "data":{
+            "Age": 47,
+            "Sleep_Hours": 7.7,
+            "Work_Hours": 31,
+            "Physical_Activity_Hours": 10
+        }
+    }
+    assert actual_features == expected_features
+
+
+
 def test_prepare_features():
-    # Initialize the model service with a test run_id
-    test_run_id = "your_test_run_id_here"  # Replace with an actual test run ID
-    model_service = lambda_function.ModelService(run_id=test_run_id, model_path="models_mlflow")
-    model_service.load_model()  # This will load the model and preprocessor
-    
-    # Test data - should match the features your model was trained on
+    model_service = model.ModelService(None)
+
     data = {
         "Age": 47,
         "Sleep_Hours": 7.7,
@@ -27,12 +39,8 @@ def test_prepare_features():
     assert isinstance(prediction[0], float)  # Assuming regression output
 
 def test_lambda_handler():
-    # Initialize the model service with a test run_id
-    test_run_id = "your_test_run_id_here"  # Replace with an actual test run ID
-    model_service = lambda_function.ModelService(run_id=test_run_id, model_path="models_mlflow")
-    model_service.load_model()
-    
-    # Create test event
+    model_service = model.ModelService(None)
+
     test_event = {
         "Records": [
             {
