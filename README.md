@@ -238,6 +238,16 @@ docker run -it --rm -p 9696:9696 mental-health-pridiction-service:v1
 ---
 
 ## ✅ Best Practices Implemented
+- **Install pytest**
+
+```bash
+//install pytest
+pipenv install --dev pytest
+//make sure you activate
+pipenv shell
+//to check the version
+pipenv --venv
+```
 
 | Practice                   | Status            |
 |----------------------------|--------------------|
