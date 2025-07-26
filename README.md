@@ -238,7 +238,7 @@ docker run -it --rm -p 9696:9696 mental-health-pridiction-service:v1
 ---
 
 ## ✅ Best Practices Implemented
-- **Install pytest**
+- **pytest**
 
 ```bash
 //install pytest
@@ -247,18 +247,32 @@ pipenv install --dev pytest
 pipenv shell
 //to check the version
 pipenv --venv
+
+//docker build image
+docker build -t stream-model-duration:v2 .
+
+//docker run
+docker run -it --rm \
+    -p 8080:8080 \
+    -e PREDICTIONS_STREAM_NAME="mental_health_predictions" \
+    -e TEST_RUN="True" \
+    -e AWS_DEFAULT_REGION="us-central1-c" \
+    stream-model-duration:v2
 ```
+📸 Screenshots:
+
+<img width="1021" height="236" alt="image" src="https://github.com/user-attachments/assets/91d2ac97-aa45-4500-88b2-0b6f0a3cab87" />
+
 
 | Practice                   | Status            |
 |----------------------------|--------------------|
-| Unit Tests                 | ✅                 |
-| Integration Tests          | ✅                 |
+| Unit Tests                 | ✅ (pytest)        |
+| Integration Tests          | ✅ (docker-compose)|
 | Linter / Formatter         | ✅ (Black, flake8) |
 | Makefile                   | ✅                 |
 | Pre-commit Hooks           | ✅                 |
 | Experiment Tracking        | ✅ (MLflow)        |
-| Workflow Orchestration     | ✅ (Mage)          |
-| Containerization           | ✅ (Docker)        |
+| CI.CD Pipeline             | ✅                 |
 
 ---
 
