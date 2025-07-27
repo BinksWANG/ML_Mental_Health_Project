@@ -263,14 +263,54 @@ docker run -it --rm \
 
 <img width="1021" height="236" alt="image" src="https://github.com/user-attachments/assets/91d2ac97-aa45-4500-88b2-0b6f0a3cab87" />
 
+- **Integration test**
+
+```bash
+//install deepdiff
+pipenv install --dev deepdiff
+pipenv shell
+
+integration_test/./run.sh
+echo $?
+```
+
+- **Linter / Formatter**
+
+```bash
+//install pylint
+pipenv install --dev pylint
+
+pylint --recursive=y .
+echo $?
+
+//install black
+pipenv install --dev black isort black[jupyter]
+
+//run black
+black --diff .
+black --skip-string-normalization --diff .
+black .
+pylint --recursive=y .
+
+//run isort
+isort --diff .
+isort .
+pylint --recursive=y .
+```
+- **Makefiles**
+make --version
+make publish
+```bash
+
+
+```
 
 | Practice                   | Status            |
 |----------------------------|--------------------|
 | Unit Tests                 | ✅ (pytest)        |
 | Integration Tests          | ✅ (docker-compose)|
-| Linter / Formatter         | ✅ (Black, flake8) |
+| Linter / Formatter         | ✅ (Black)         |
 | Makefile                   | ✅                 |
-| Pre-commit Hooks           | ✅                 |
 | Experiment Tracking        | ✅ (MLflow)        |
 | CI.CD Pipeline             | ✅                 |
 
